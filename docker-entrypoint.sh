@@ -17,4 +17,7 @@ fi
 #change bastionpasswd
 echo "bastion:$BASTIONPW" | chpasswd
 
+#change user permissions
+chown -R /home/bastion/.ssh/
+
 exec "$@"
