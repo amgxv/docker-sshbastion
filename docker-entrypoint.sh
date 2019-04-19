@@ -19,7 +19,7 @@ echo "bastion:$BASTIONPW" | chpasswd
 
 #change user permissions
 if [ -d "/home/bastion/.ssh" ]; then
-	chown -R /home/bastion/.ssh/
+  chown -R bastion:bastion /home/bastion/.ssh/
 fi
 
 exec "$@"
