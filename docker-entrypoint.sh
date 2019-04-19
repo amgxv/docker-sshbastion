@@ -17,7 +17,4 @@ fi
 #change bastionpasswd
 echo "bastion:$BASTIONPW" | chpasswd
 
-#change bastionhostname
-echo "$BASTIONHOSTNAME" >> /etc/hostname
-
 exec "$@"
