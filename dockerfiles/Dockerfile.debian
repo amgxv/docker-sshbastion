@@ -1,0 +1,9 @@
+FROM debian:9.8-slim
+
+ENV BASTIONPW=ChAnG3_-_m3
+ADD docker-entrypoint.sh /usr/local/bin
+RUN apt update && apt install -y openssh-server && rm  -rf /tmp/* /var/cache/apt/* && apt autoremove -y && useradd -s /bin/bash -u 1001 -m -p $BASTIONPW -U bastion && rm -rf /etc/ssh/ssh_host_rsa_key /etc/ssh/ssh_host_dsa_key
+
+EXPOSE 22
+ENTRYPOINT ["docker-entrypoint.sh"] 
+CMD ["/usr/sbin/sshd","-D"]
